@@ -1,14 +1,14 @@
-package learning_questions_answering;
+package learning_questions_answering.java_new_features;
 
 public class Java12SwitchUpdate {
     public static void main(String[] args) {
+
+//        Comparing Switch old implementation with new implementation
         // simple switch example
         int a = 3;
         switchNewImplementation(a);
         switchOldImplementation(a);
-
     }
-
 
     public static void switchNewImplementation(int a) {
         System.out.println("New Implementation:");
@@ -36,8 +36,4 @@ public class Java12SwitchUpdate {
                 System.out.println("Default value");
         }
     }
-
-
-
-
 }
