@@ -1,7 +1,11 @@
 package com.loan.web;
 
 import com.loan.model.Loan;
-import com.loan.service.LoanServiceImpl;
+import com.loan.service.BlackListService;
+import com.loan.service.LoanService;
+import com.loan.web.forms.Error;
+import com.loan.web.forms.Result;
+import com.loan.web.forms.Success;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,10 +16,12 @@ import java.util.List;
 @Slf4j
 public class LoanController {
 
-    private final LoanServiceImpl loanService;
+    private final LoanService loanService;
+    private final BlackListService blacklists;
 
-    public LoanController(LoanServiceImpl loanService) {
+    public LoanController(LoanService loanService, BlackListService blacklists) {
         this.loanService = loanService;
+        this.blacklists = blacklists;
     }
 
     @GetMapping("/")
@@ -28,9 +34,9 @@ public class LoanController {
     }
 
     @GetMapping("/loans")
-    public List<Loan> getAllLoans() {
+    public String getAllLoans() {
         log.info("Entering getAllLoans");
-        return loanService.getAll();
+        return loanService.getAll().toString();
     }
 
     @GetMapping("/loans/{personId}")
@@ -40,9 +46,15 @@ public class LoanController {
     }
 
     @PostMapping("/submit_loan")
-    public void postLoan() {
+    public Result postLoan(@RequestBody Loan loan) {
         log.info("Entering postLoan");
+
+        final Result result;
+        if (!this.blacklists.isBlackListPerson(loan.getPerson().getId())) {
+            result = new Success<>(this.loanService.apply(loan));
+        } else {
+            result = new Error(String.format("User %s in blacklist", loan.getPerson().getId()));
+        }
+        return result;
     }
-
-
 }

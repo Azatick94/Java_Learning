@@ -24,7 +24,7 @@ class LoanServiceTest {
     PersonService personService;
 
     @Test
-    public void applyLoanTest() {
+    public void applyTest() {
 
         Loan newLoan = new Loan();
         newLoan.setAmount(100d);
@@ -38,7 +38,7 @@ class LoanServiceTest {
     }
 
     @Test
-    public void showAllLoanTest() {
+    public void getAllTest() {
         List<Loan> calculated = loanService.getAll();
 
         List<Loan> expected = new ArrayList<>();
@@ -50,7 +50,7 @@ class LoanServiceTest {
     }
 
     @Test
-    public void showLoanByPersonId() {
+    public void getByPersonTest() {
         List<Loan> personCalculated = loanService.getByPerson(3);
 
         List<Loan> personExpected = new ArrayList<>();
