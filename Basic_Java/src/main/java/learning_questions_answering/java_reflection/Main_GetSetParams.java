@@ -8,6 +8,7 @@ public class Main_GetSetParams {
 
     public static void main(String[] args) {
 
+        // creating instance of the class
         ReflectionExample reflectionExample = new ReflectionExample();
         int number = reflectionExample.getNumber();
 
@@ -25,24 +26,23 @@ public class Main_GetSetParams {
             e.printStackTrace();
         }
 
-        System.out.println("1) Name: "+name+", number: "+number);
+        System.out.println("1) Name: " + name + ", number: " + number);
 
         // 2) Пытаюсь присвоить private параметру и потом извлечь в помощью рефлексии.
         // а теперь установим новое имя через Reflection и запринтуем новые данные.
         try {
             Field field = reflectionExample.getClass().getDeclaredField("name");
             field.setAccessible(true);
-            field.set(reflectionExample, (String) "New_name");
+            field.set(reflectionExample, "New_name");
             name = (String) field.get(reflectionExample);
 
         } catch (NoSuchFieldException | IllegalAccessException e) {
             e.printStackTrace();
         }
 
-        System.out.println("2) Name: "+name+", number: "+number);
+        System.out.println("2) Name: " + name + ", number: " + number);
 
         // 3) Пытаюсь вызвать private метод класса printInfo();
-
         try {
             Method method = reflectionExample.getClass().getDeclaredMethod("printInfo");
             method.setAccessible(true);
@@ -55,13 +55,12 @@ public class Main_GetSetParams {
         }
 
         // 4) Пытаюсь создать инстанс класса с default конструктором.
-
 //        System.out.println(ReflectionExample.class.getName());
 
         ReflectionExample newInstance = null;
 
         try {
-            Class clazz = Class.forName(ReflectionExample.class.getName());
+            Class<?> clazz = Class.forName(ReflectionExample.class.getName());
 
 //            newInstance = (ReflectionExample)clazz.newInstance(); // old implementation
             newInstance = (ReflectionExample) clazz.getDeclaredConstructor().newInstance();

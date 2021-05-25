@@ -24,8 +24,14 @@ public class ReflectionExampleWithConstructor {
 
     // printInfo спрятан
     private void printInfo() {
-        System.out.println("Name: "+this.name+", number: "+this.number);
+        System.out.println("Name: " + this.name + ", number: " + this.number);
     }
 
-
+    @Override
+    public String toString() {
+        return "ReflectionExampleWithConstructor{" +
+                "number=" + number +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

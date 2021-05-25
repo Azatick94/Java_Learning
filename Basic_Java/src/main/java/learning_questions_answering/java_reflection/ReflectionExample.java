@@ -19,8 +19,14 @@ public class ReflectionExample {
 
     // printInfo спрятан
     private void printInfo() {
-        System.out.println("Name: "+this.name+", number: "+this.number);
+        System.out.println("Name: " + this.name + ", number: " + this.number);
     }
 
-
+    @Override
+    public String toString() {
+        return "ReflectionExample{" +
+                "number=" + number +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }
