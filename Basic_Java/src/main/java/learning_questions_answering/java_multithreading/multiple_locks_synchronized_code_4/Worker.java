@@ -38,6 +38,7 @@ public class Worker {
         thread2.start();
 
         try {
+            // killing threads
             thread1.join();
             thread2.join();
         } catch (InterruptedException e) {

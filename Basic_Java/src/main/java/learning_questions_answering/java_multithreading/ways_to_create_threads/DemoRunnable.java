@@ -10,7 +10,6 @@ public class DemoRunnable {
 
         thread1.start();
         thread2.start();
-
     }
 
 
@@ -20,7 +19,7 @@ public class DemoRunnable {
         public void run() {
 
             for (int i = 0; i < 10; i++) {
-                System.out.println(Thread.currentThread().getName()+" - Hello "+i);
+                System.out.println(Thread.currentThread().getName() + " - Hello " + i);
             }
             try {
                 Thread.sleep(100);
@@ -30,7 +29,6 @@ public class DemoRunnable {
 
         }
     }
-
 
 
 }

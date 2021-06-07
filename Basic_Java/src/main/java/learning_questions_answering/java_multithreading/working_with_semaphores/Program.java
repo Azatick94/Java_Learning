@@ -20,7 +20,7 @@ public class Program {
 }
 
 class CommonResource {
-    int x=0;
+    int x = 0;
 }
 
 

@@ -11,8 +11,8 @@ public class Stats<T extends Number> {
     double average() {
         double sum=0.0;
 
-        for (int i = 0; i < nums.length; i++) {
-            sum+=nums[i].doubleValue();
+        for (T num : nums) {
+            sum += num.doubleValue();
         }
 
         return sum/nums.length;

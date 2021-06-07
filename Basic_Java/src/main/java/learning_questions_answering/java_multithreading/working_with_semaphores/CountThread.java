@@ -19,6 +19,7 @@ class CountThread implements Runnable {
 
         try {
             System.out.println(name + "ожидает разрешение");
+            // getting access from semaphote if possible
             semaphore.acquire();
             resource.x=1;
             for (int i = 1; i < 5; i++){
@@ -32,9 +33,7 @@ class CountThread implements Runnable {
         }
 
         System.out.println(name + " освобождает разрешение");
+        // releasing semaphore
         semaphore.release();
-
-
-
     }
 }

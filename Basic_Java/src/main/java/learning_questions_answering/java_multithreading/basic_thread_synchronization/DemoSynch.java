@@ -12,11 +12,10 @@ public class DemoSynch {
 
         // пытаемся остановить поток
         thread.shutdownThread();
-
-
     }
 
 
+    // класс потока. необходимо переопределить метод run
     public static class MyThread extends Thread {
 
         private volatile boolean running = true;
@@ -36,13 +35,7 @@ public class DemoSynch {
 
         public void shutdownThread() {
             running = false;
+            System.out.println("Shutting down thread");
         }
-
     }
-
-
-
-
-
-
 }

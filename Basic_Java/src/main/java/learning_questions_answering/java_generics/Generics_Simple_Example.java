@@ -11,11 +11,11 @@ public class Generics_Simple_Example {
         String[] lstStrings = {"1","2","3","4","5","6"};
 
 
-        List arrayListIntegers = fromArrayToList(lstIntegers);
+        List<?> arrayListIntegers = fromArrayToList(lstIntegers);
         arrayListIntegers.forEach(System.out::print);
 
         System.out.println("\n");
-        List arrayListStrings = fromArrayToList(lstStrings);
+        List<?> arrayListStrings = fromArrayToList(lstStrings);
         arrayListStrings.forEach(System.out::print);
 
 
