@@ -9,9 +9,5 @@ public class GenDemo {
 
         Gen<String> strOb = new Gen<>("some_text");
         strOb.showType();
-
-
     }
-
-
 }

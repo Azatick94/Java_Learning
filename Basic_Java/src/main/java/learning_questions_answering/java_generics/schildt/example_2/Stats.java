@@ -17,7 +17,6 @@ public class Stats<T extends Number> {
 
         return sum/nums.length;
     }
-
 }
 
 

@@ -10,7 +10,5 @@ public class BoundsDemo {
         Double[] fnums = {1.0, 2.0, 3.0, 4.0, 5.0};
         Stats<Double> dob = new Stats<>(fnums);
         System.out.println(dob.average());
-
-
     }
 }
