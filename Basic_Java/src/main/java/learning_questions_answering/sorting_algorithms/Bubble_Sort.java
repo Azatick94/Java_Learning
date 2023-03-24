@@ -23,12 +23,12 @@ public class Bubble_Sort {
     public static int[] sort(int[] arr) {
         int len = arr.length;
 
-        for (int i=0; i<len-1; i++) {
-            for (int k=0; k<len-i-1; k++) {
-                if (arr[k]>arr[k+1]) {
+        for (int i = 0; i < len - 1; i++) {
+            for (int k = 0; k < len - i - 1; k++) {
+                if (arr[k] > arr[k + 1]) {
                     int swap = arr[k];
-                    arr[k] = arr[k+1];
-                    arr[k+1] = swap;
+                    arr[k] = arr[k + 1];
+                    arr[k + 1] = swap;
                 }
             }
         }
