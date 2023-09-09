@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class WithAtomics {
 
@@ -16,6 +17,7 @@ public class WithAtomics {
     static class MyThread implements Runnable {
         @Override
         public void run() {
+            System.out.println("Thread started = " + Thread.currentThread().getName());
             for (int i = 0; i < 100; i++) {
                 add();
             }
@@ -38,8 +40,8 @@ public class WithAtomics {
         }
         executor.shutdown();
 
-        System.out.println("Should be 1000");
-        System.out.println("Result " + count);
+        assertEquals(1000, count.get());
+        System.out.printf("Expected = %s and Actual value = %s", 1000, count.get());
     }
 
 }

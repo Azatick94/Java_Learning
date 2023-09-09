@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.*;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class WithoutAtomics {
 
     private static volatile int count = 0;
@@ -37,8 +39,8 @@ public class WithoutAtomics {
         }
         executor.shutdown();
 
-        System.out.println("Should be 1000");
-        System.out.println("Result "+ count);
+        assertEquals(1000, count);
+        System.out.printf("Expected = %s and Actual value = %s", 1000, count);
     }
 
 }
