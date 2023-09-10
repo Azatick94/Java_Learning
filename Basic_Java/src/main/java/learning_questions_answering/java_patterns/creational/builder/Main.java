@@ -2,28 +2,32 @@ package learning_questions_answering.java_patterns.creational.builder;
 
 public class Main {
 
-    // creating flats
     public static void main(String[] args) {
-        Flat flat1 = new FlatBuilder(1L).defineCity("Moscow")
-                .defineFlatNumber(170)
-                .defineArea(38)
-                .defineNumberOfRooms(1)
-                .buildFlat();
 
-        Flat flat2 = new FlatBuilder(2L).defineCity("Kazan")
-                .defineFlatNumber(100)
-                .defineNumberOfRooms(2)
-                .buildFlat();
+        Person.Builder builder1 = new Person.Builder("Alex")
+                .address("address")
+                .age(20)
+                .email("testemail")
+                .phoneNumber("111")
+                ;
+        Person.Builder builder2 = new Person.Builder("Sasha")
+                .address("address2")
+                .age(22)
+                .email("testemail2")
+                .phoneNumber("123")
+                ;
 
-        Flat flat3 = new FlatBuilder(3L)
-                .defineNumberOfRooms(3)
-                .defineArea(65)
-                .buildFlat();
+        Person person1 = builder1.build();
+        Person person2 = builder2.build();
 
-        System.out.println(flat1.toString());
-        System.out.println(flat2.toString());
-        System.out.println(flat3.toString());
+
+        System.out.println("Person - 1");
+        System.out.println(person1.toString());
+        System.out.println("Person - 2");
+        System.out.println(person2.toString());
+
 
     }
+
 
 }
